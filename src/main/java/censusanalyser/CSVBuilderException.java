@@ -3,7 +3,7 @@ package censusanalyser;
 public class CSVBuilderException extends RuntimeException {
 
     enum ExceptionType {
-        UNABLE_TO_PARSE, CENSUS_FILE_PROBLEM
+        UNABLE_TO_PARSE, DELIMETER_EXCEPTION, NO_CENSUS_DATA, CENSUS_FILE_PROBLEM
     }
 
     CSVBuilderException.ExceptionType type;
