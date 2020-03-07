@@ -22,12 +22,11 @@ public class CensusAnalyser {
 
     }
 
-    public int loadIndiaCensusData(Country country,String... csvFilePath) throws CensusAnalyserException {
+    public int loadCensusData(Country country, String... csvFilePath) throws CensusAnalyserException {
+        censusMap=CensusAdapterFactory.getCensusAdapter(country,csvFilePath);
+        censusList=censusMap.values().stream().collect(Collectors.toList());
 
-            censusMap=new CensusLoader().loadCensusData(IndiaCensusCSV.class,csvFilePath);
-            censusList=censusMap.values().stream().collect(Collectors.toList());
-
-            return censusMap.size();
+        return censusMap.size();
     }
 
     public String getStateWiseSortedCensusData(String csvFilePath) throws CensusAnalyserException {
@@ -51,14 +50,6 @@ public class CensusAnalyser {
             }
         }
     }
-
-    public int loadUsCensusData(Country country,String csvFilePath) throws CensusAnalyserException {
-
-        censusMap=new CensusLoader().loadCensusData(UsCensusCSV.class,csvFilePath);
-        censusList=censusMap.values().stream().collect(Collectors.toList());
-
-        return censusMap.size();
-   }
 
 }
 
