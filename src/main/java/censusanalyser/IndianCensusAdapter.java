@@ -17,7 +17,7 @@ public class IndianCensusAdapter extends CensusAdapter {
     @Override
     public Map<String, CensusDTO> loadCensusData(String... csvFilePath) throws CensusAnalyserException {
         censusMap = super.loadCensusData(IndiaCensusCSV.class, csvFilePath[0]);
-        //this.loadIndianStateCodeData(csvFilePath[1]);
+        this.loadIndianStateCodeData(csvFilePath[1]);
         return censusMap;
     }
 
